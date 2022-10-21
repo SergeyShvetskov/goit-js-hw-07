@@ -52,22 +52,24 @@ import { galleryItems } from './gallery-items.js';
 const newGalery = createNewGallery(galleryItems);
 const gallery = document.querySelector(".gallery");
 
-gallery.insertAdjacentHTML("beforeend", newGalery);
+gallery.insertAdjacentHTML('beforeend', newGalery);
 
-gallery.addEventListener("click", onClickGallery);
+gallery.addEventListener('click', onClickGallery);
+
+window.addEventListener('keydown', onEscKeyPress);
 
 function onClickGallery(event) {
     event.preventDefault();
     if (event.target.nodeName !=="IMG") {
         return;
     }
-    console.log("Працюємо");
-    console.log(event.target.dataset.source);
+   
+  const link = event.target.dataset.source;
     
-const instance = basicLightbox.create(`
-	<h1>Dynamic Content</h1>
-	<p>You can set the content of the lightbox with JS.</p>
-`)
+// const instance = basicLightbox.create(`
+// 	<img src="${link}" width="auto" height="auto">
+// `)
+//   instance.show()
 }
 function createNewGallery(event) {
     return event.map(({ preview, original, description }) => {
@@ -84,3 +86,6 @@ function createNewGallery(event) {
     }).join('');
 }
 
+function onEscKeyPress(event) {
+  console.log(event);
+}
