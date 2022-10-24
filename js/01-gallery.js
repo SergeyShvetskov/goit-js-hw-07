@@ -66,10 +66,11 @@ function onClickGallery(event) {
    
   const link = event.target.dataset.source;
     
-// const instance = basicLightbox.create(`
-// 	<img src="${link}" width="auto" height="auto">
-// `)
-//   instance.show()
+const instance = basicLightbox.create(`
+	<img src="${link}" width="auto" height="auto">
+`)
+  instance.show();
+  
 }
 function createNewGallery(event) {
     return event.map(({ preview, original, description }) => {
@@ -86,6 +87,14 @@ function createNewGallery(event) {
     }).join('');
 }
 
-function onEscKeyPress(event) {
-  console.log(event);
-}
+// function onEscKeyPress(event) {
+//   console.log(event);
+//   if (event.code === 'Escape') {
+//     onCloseModal();
+//   }
+// }
+
+// function onCloseModal() {
+//   window.removeEventListener('keydown', onEscKeyPress);
+  
+// }
