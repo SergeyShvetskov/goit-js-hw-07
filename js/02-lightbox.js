@@ -20,11 +20,10 @@
 //+3. Ініціалізація бібліотеки після створення і додання елементів галереї у 
 // div.gallery.Для цього ознайомся з документацією SimpleLightbox - насамперед 
 // секції «Usage» і «Markup».
-// 4. Подивися в документації секцію «Options» і додай відображення підписів до 
+//+4. Подивися в документації секцію «Options» і додай відображення підписів до 
 // зображень з атрибута alt. Нехай підпис буде знизу і з'являється через 
 // 250 мілісекунд після відкриття зображення.
 
-// import SimpleLightbox from "simplelightbox";
 
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
@@ -33,18 +32,14 @@ const newGalery = createNewGallery(galleryItems);
 const gallery = document.querySelector(".gallery");
 
 gallery.insertAdjacentHTML('beforeend', newGalery);
-
 gallery.addEventListener('click', onClickGallery);
-
-// window.addEventListener('keydown', onEscKeyPress);
 
 function onClickGallery(event) {
     event.preventDefault();
     if (event.target.nodeName !== "IMG") {
         return;
     }
-    // console.log(event);
-    var lightbox = new SimpleLightbox('.gallery a');
+    var lightbox = new SimpleLightbox('.gallery a', {captionsData:"alt", captionDelay:250});
 }
 
 function createNewGallery(event) {
