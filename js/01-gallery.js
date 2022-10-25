@@ -51,7 +51,6 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const newGalery = createNewGallery(galleryItems);
 const gallery = document.querySelector(".gallery");
-const instance = basicLightbox.create();
 
 gallery.insertAdjacentHTML('beforeend', newGalery);
 gallery.addEventListener('click', onClickGallery);
@@ -65,7 +64,7 @@ function onClickGallery(event) {
    
   const link = event.target.dataset.source;
     
-instance = basicLightbox.create(`
+const instance = basicLightbox.create(`
 	<img src="${link}" width="auto" height="auto">
 `)
   instance.show();
