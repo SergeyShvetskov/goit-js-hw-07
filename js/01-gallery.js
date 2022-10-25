@@ -49,12 +49,11 @@
 
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-const newGalery = createNewGallery(galleryItems);
+const newGallery = createNewGallery(galleryItems);
 const gallery = document.querySelector(".gallery");
 
-gallery.insertAdjacentHTML('beforeend', newGalery);
+gallery.insertAdjacentHTML('beforeend', newGallery);
 gallery.addEventListener('click', onClickGallery);
-window.addEventListener('keydown', onEscKeyPress);
 
 function onClickGallery(event) {
     event.preventDefault();
@@ -84,8 +83,4 @@ function createNewGallery(event) {
     }).join('');
 }
 
-// function onEscKeyPress(event) {
-//   if (event.code === 'Escape') {
-//     console.log("Ескейп");
-//   }
-// }
+
